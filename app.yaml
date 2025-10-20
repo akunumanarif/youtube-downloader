@@ -1,4 +1,4 @@
-runtime: nodejs18
+runtime: nodejs20
 
 env_variables:
   NODE_ENV: production
@@ -18,19 +18,3 @@ handlers:
 - url: /.*
   script: auto
   secure: always
-
-# Skip files that shouldn't be uploaded
-skip_files:
-- ^(.*/)?#.*#$
-- ^(.*/)?.*~$
-- ^(.*/)?.*\.py[co]$
-- ^(.*/)?.*/RCS/.*$
-- ^(.*/)?\..*$
-- ^(.*/)?node_modules/.*$
-- ^(.*/)?\.git/.*$
-- ^(.*/)?\.gitignore$
-- ^(.*/)?README\.md$
-- ^(.*/)?\.dockerignore$
-- ^(.*/)?Dockerfile$
-- ^(.*/)?docker-compose\.yml$
-- ^(.*/)?deploy\.sh$
