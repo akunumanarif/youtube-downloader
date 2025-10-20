@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  youtube-downloader:
+    build: .
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "com.example.service=youtube-downloader"
+      - "com.example.description=YouTube video downloader web application"
