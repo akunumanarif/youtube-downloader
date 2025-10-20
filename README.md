@@ -53,7 +53,28 @@ A simple, full-stack JavaScript YouTube video downloader that can be deployed to
 
 ## VPS Deployment
 
-### Method 1: Basic VPS Setup
+### Method 1: Google App Engine (Recommended for Easy Deployment)
+
+Google App Engine provides serverless hosting with automatic scaling and a generous free tier.
+
+**Quick Deployment:**
+```bash
+# Install Google Cloud SDK
+# Create Google Cloud project
+gcloud projects create your-project-id
+gcloud config set project your-project-id
+gcloud app create --region=us-central
+
+# Deploy the application
+gcloud app deploy
+
+# Open in browser
+gcloud app browse
+```
+
+📖 **See [DEPLOYMENT-GAE.md](DEPLOYMENT-GAE.md) for detailed Google App Engine deployment guide**
+
+### Method 2: Basic VPS Setup
 
 #### Step 1: Server Requirements
 - Ubuntu 20.04+ or CentOS 7+ (recommended)
@@ -99,7 +120,7 @@ sudo firewall-cmd --permanent --add-port=3000/tcp
 sudo firewall-cmd --reload
 ```
 
-### Method 2: Using PM2 (Production Recommended)
+### Method 3: Using PM2 (Production Recommended)
 
 PM2 is a process manager that keeps your app running and automatically restarts it if it crashes.
 
@@ -134,7 +155,7 @@ pm2 save
 pm2 startup
 ```
 
-### Method 3: Using Docker
+### Method 4: Using Docker
 
 #### Create Dockerfile
 ```dockerfile
@@ -173,7 +194,7 @@ services:
 docker-compose up -d
 ```
 
-### Method 4: Using Nginx Reverse Proxy
+### Method 5: Using Nginx Reverse Proxy
 
 #### Install Nginx
 ```bash
